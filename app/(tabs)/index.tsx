@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Pressable, View } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { Stack } from 'expo-router';
+import { Stack, router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function Index() {
@@ -38,7 +38,10 @@ export default function Index() {
         </ThemedView>
 
         <ThemedView style={styles.floatingButtons}>
-          <Pressable style={styles.iconButton}>
+          <Pressable 
+            style={styles.iconButton}
+            onPress={() => router.push('/history')}
+          >
             <Ionicons name="time-outline" size={24} color="#6B7280" />
           </Pressable>
           <Pressable style={styles.iconButton}>

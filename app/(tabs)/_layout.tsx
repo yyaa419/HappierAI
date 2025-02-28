@@ -6,6 +6,7 @@ export default function RootLayout() {
     <ThemeProvider value={DefaultTheme}>
       <Stack>
         <Stack.Screen name="index" />
+        <Stack.Screen name="history" />
       </Stack>
     </ThemeProvider>
   );
