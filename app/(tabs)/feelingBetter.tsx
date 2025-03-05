@@ -70,7 +70,7 @@ const Feeling = ({ navigation }) => {
                     />
                     {/* Bottom Buttons */}
                     <ThemedView style={styles.buttonContainer}>
-                        <Pressable onPress={() => router.push('/index')} style={styles.iconButton}>
+                        <Pressable onPress={() => router.push('/')} style={styles.iconButton}>
                             <Ionicons name="arrow-forward" size={28} color="#4B5563"/>
                         </Pressable>
                     </ThemedView>
