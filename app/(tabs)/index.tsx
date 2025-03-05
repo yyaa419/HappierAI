@@ -51,7 +51,7 @@ export default function Index() {
 
         <ThemedView style={styles.footer}>
           <Pressable
-              onPress={() => router.push('/irretionalThoughts')}
+              onPress={() => router.push('/feeling')}
           >
           <ThemedText style={styles.button}>Reshape my thoughts</ThemedText>
           </Pressable>

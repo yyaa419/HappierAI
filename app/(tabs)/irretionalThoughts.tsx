@@ -51,10 +51,9 @@ const IrrationalThoughts = ({ navigation }) => {
                         renderItem={({ item }) => <ThoughtCard text={item.text} />}
                         contentContainerStyle={styles.listContainer}
                     />
-
                     {/* Bottom Buttons */}
                     <ThemedView style={styles.buttonContainer}>
-                        <Pressable style={styles.finishButton}>
+                        <Pressable onPress={() => router.push('/feelingBetter')} style={styles.finishButton}>
                             <ThemedText style={styles.finishText}>Finish</ThemedText>
                         </Pressable>
                         <View style={styles.buttonWrapper}>
