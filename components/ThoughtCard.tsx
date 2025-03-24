@@ -1,22 +1,36 @@
-import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import { View, Text, StyleSheet, TouchableOpacity, Switch, ImageBackground } from "react-native";
 import { Ionicons } from "@expo/vector-icons"; // For heart icon
 
-const ThoughtCard = ({ text }) => {
+const ThoughtCard = ({ positiveText, negativeText }) => {
+    const [isPositive, setIsPositive] = useState(false);
+
+    const toggleSwitch = () => setIsPositive(previousState => !previousState);
+
     return (
-        <View style={styles.card}>
-            <Text style={styles.text}>{text}</Text>
+        <ImageBackground
+            source={isPositive ? require('../assets/images/button.png') : require('../assets/images/BG.png')}
+            style={styles.card}
+        >
+            <Text style={[styles.text, { color: isPositive ? 'white' : '#494949' }]}>{isPositive ? positiveText : negativeText}</Text>
+            <Switch
+                trackColor={{ false: "#C2DEFF", true: "#C2DEFF" }}
+                thumbColor={isPositive ? "#ffffff" : "#f4f3f4"}
+                onValueChange={toggleSwitch}
+                value={isPositive}
+                style={{ transform: [{ scaleX: 0.8 }, { scaleY: 0.8 }], marginRight: -30, marginBottom: 100 }}
+            />
             <TouchableOpacity>
-                <Ionicons name="heart-outline" size={20} color="gray" top={50}/>
+                <Ionicons name="heart-outline" size={20} color={isPositive ? 'white' : 'gray'}  top={50}/>
             </TouchableOpacity>
-        </View>
+        </ImageBackground>
     );
 };
 
 const styles = StyleSheet.create({
     card: {
         backgroundColor: "rgba(255, 255, 255, 0.4)",
-        padding: 20,
+        padding: 15,
         borderRadius: 20,
         marginBottom: 30,
         marginLeft: 10,
@@ -32,9 +46,10 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.1,
         shadowRadius: 5,
         elevation: 2,
+        overflow: "hidden",
     },
     text: {
-        left: 20,
+        left: 10,
         fontSize: 16,
         fontWeight: "600",
         lineHeight: 30,

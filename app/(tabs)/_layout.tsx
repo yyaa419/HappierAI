@@ -7,7 +7,8 @@ export default function RootLayout() {
       <Stack>
         <Stack.Screen name="index" />
         <Stack.Screen name="history" />
-          <Stack.Screen name="irretionalThoughts" />
+        <Stack.Screen name="irretionalThoughts" />
+        <Stack.Screen name="irrationalThoughtsHistory" />
       </Stack>
     </ThemeProvider>
   );
